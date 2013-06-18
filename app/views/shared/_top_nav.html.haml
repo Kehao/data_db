@@ -1,0 +1,18 @@
+.navbar.navbar-inverse
+  .navbar-inner
+    .container
+      %ul.nav
+        %li
+          = link_to "档案中心",root_path
+        - active_class = controller_name.eql?("search") && "active" || ""
+        %li{:class=>active_class}
+          = link_to search_path do 
+            %i{:class=>"fui-eye-16"}
+            搜 索
+
+        - active_class = controller_name.eql?("home") && "active" || ""
+        %li{:class=>active_class}
+          = link_to api_path do 
+            %i{:class=>"fui-cmd-16"}
+            API接口
+      = render "shared/user_info"

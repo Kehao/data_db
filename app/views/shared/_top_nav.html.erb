@@ -5,6 +5,21 @@
         <li>
         <%= link_to "档案中心",root_path%>
         </li>
+        <li>
+        <%active_class = controller_name.eql?("search") && "active" || ""%>
+        <%= link_to search_path,:class=>"#{active_class}" do %>
+          <i class="fui-eye-16"></i> 
+          搜 索
+        <% end %>
+        </li>
+        <%active_class = controller_name.eql?("home") && "active" || ""%>
+
+        <li class=>
+        <%= link_to api_path,:class=>"#{active_class}" do %>
+          <i class="fui-menu-16"></i> 
+          API接口
+        <% end %>
+        </li>
       </ul>
       <%= render "shared/user_info"%>
     </div>
