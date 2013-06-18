@@ -182,7 +182,7 @@ module PdfHelper
   def example_header(package, example)
     header_box do
       register_fonts
-      font('Hwxk', :size => 18) do
+      font('Hwkt', :size => 18) do
         formatted_text([ { :text => package, :color => BROWN  },
                        { :text => "/",     :color => BROWN  },
                        { :text => example, :color => ORANGE }
@@ -195,10 +195,10 @@ module PdfHelper
   #
   def register_fonts
     #kai_file = "#{Prawn::DATADIR}/fonts/gkai00mp.ttf"
-    hwxk_file = "#{Prawn::DATADIR}/fonts/Hwxk.ttf"
-    font_families["Hwxk"] = {
-      :normal => { :file => hwxk_file, :font => "Hwxk" }
-    }
+    #hwxk_file = "#{Prawn::DATADIR}/fonts/Hwxk.ttf"
+    #font_families["Hwxk"] = {
+    #  :normal => { :file => hwxk_file, :font => "Hwxk" }
+    #}
 
     hwkt_file = "#{Prawn::DATADIR}/fonts/Hwkt.ttf"
     font_families["Hwkt"] = {
@@ -302,7 +302,7 @@ module PdfHelper
   def header(str)
     header_box do
       register_fonts
-      font('Hwxk', :size => 24) do
+      font('Hwkt', :size => 24) do
         text(str, :color  => BROWN, :valign => :center)
       end
     end
@@ -373,7 +373,7 @@ module PdfHelper
 
     register_fonts
     text_options = { :leading        => options[:leading], 
-      :fallback_fonts => ["Hwxk","Hwkt"]
+      :fallback_fonts => ["Hwkt"]
     }
 
     box_height = height_of_formatted(box_text, text_options)
