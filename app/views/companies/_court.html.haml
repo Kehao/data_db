@@ -73,9 +73,9 @@
               %th= Crime.human_attribute_name(:party_number) 
               %th= Crime.human_attribute_name(:case_id) 
               %th= Crime.human_attribute_name(:apply_money) 
-              - if can?(:snapshot, Crime)
-                %th 
-                  截图
+              /- if can?(:snapshot, Crime)
+              /%th 
+              /截图
           %tbody
             - crimes.each do |crime|
               %tr.crime{id: "crime-#{crime.id}", data: {date: "#{crime.reg_date}", state: "#{crime.state}", belongs: "#{crime.party_name == company.name ? 'company' : 'owner'}" }}
@@ -85,9 +85,9 @@
                 %td= crime.party_number
                 %td= crime.case_id
                 %td= number_to_currency crime.apply_money
-                - if can?(:snapshot, Crime)
-                  %td
-                    =court_snapshot_link(crime) 
+                /- if can?(:snapshot, Crime)
+                /%td
+                /=court_snapshot_link(crime) 
 
     - else
       %table.table.table-striped.table-bordered
