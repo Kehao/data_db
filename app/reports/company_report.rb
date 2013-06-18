@@ -5,6 +5,9 @@ class CompanyReport <  Prawn::Document
 
   def to_pdf
     credit = company.credit
+    if credit.nil?
+      company.create_credit
+    end
 
     pdf_init
     pdf_top("北京冠捷时速·信用分析报告")
