@@ -1,0 +1,44 @@
+<ul class="nav pull-right" style="margin:0;margin-right:15px">
+  <li class="active">
+  <% if current_user%>
+    <%= link_to("#{current_user.email}<span class='navbar-unread'>2</span>".html_safe,"#")%>
+    <ul>
+      <li>
+      <a href="#">系统消息</a>
+      <a href="#">管理平台</a>
+      <!--ul>
+        <li><a href="#">Element One</a></li>
+        <li><a href="#">Element Two</a></li>
+        <li><a href="#">Element Three</a></li>
+      </ul--> 
+      </li>
+      <li>
+      <%= link_to "注销",destroy_user_session_path,:method=>:delete%>
+      </li>
+    </ul> 
+  <% else %>
+    <a href="/users/sign_in"> 登 录  <span class="navbar-unread">2</span> </a>
+  <% end %>
+  </li>
+</ul>
+
+<div class="btn-toolbar pull-right" style="margin:0;margin-right:5px">
+
+  <div class="btn-group">
+    <%active_class = controller_name.eql?("search") && "active" || ""%>
+     <%= link_to search_path,:class=>"btn btn-primary #{active_class}" do %>
+      <i class="fui-eye-16"></i> 
+      搜 索
+    <% end %>
+
+     <%active_class = controller_name.eql?("home") && "active" || ""%>
+     <%= link_to api_path,:class=>"btn btn-primary #{active_class}" do %>
+      <i class="fui-menu-16"></i> 
+      API接口
+    <% end %>
+
+    <!--a class="btn btn-primary" href="#"><i class="fui-man-16"></i> 登 录</a>
+  <a class="btn btn-primary active" href="#"><i class="fui-new-24"></i> 注 册</a-->
+  </div>
+</div>
+

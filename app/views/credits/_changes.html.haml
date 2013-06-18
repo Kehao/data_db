@@ -1,0 +1,27 @@
+/%h3
+/  股东和关联方构成
+/= render "company_clients/relationship", relationships: @relationships, company: @company, company_client: @company_client
+
+- if company.credit
+  %table.table.table-striped.table-bordered
+    %tr
+      %th{:colspan=>6} 股东变更
+    %tr
+      - changes1_attrs.each do |item|
+        %th= HolderChange.human_attribute_name(item)
+    - company.credit.holder_changes.each do |p|
+      %tr
+        - changes1_attrs.each do |item|
+          %td= p.send(item)
+  
+  %table.table.table-striped.table-bordered
+    %tbody
+      %tr
+        %th{:colspan=>4} 重要变更
+      %tr
+        - changes2_attrs.each do |item|
+          %td= MassChange.human_attribute_name(item)
+      - company.credit.mass_changes.each do |p|
+        %tr
+          - changes2_attrs.each do |item|
+            %td= p.send(item)

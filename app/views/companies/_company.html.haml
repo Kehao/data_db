@@ -1,0 +1,17 @@
+%div.span12.search_company{:id=>dom_id(company)}
+  .palette.palette-clouds{:style=>"margin-bottom:10px"}
+    %h3
+      = link_to_function company.name,"$('##{dom_id(company)} .info-list').fadeToggle()"
+    %small
+      = company.owner_name || "法人-未知"
+    %small
+      |
+    %small
+      = company.code || "组织机构号: 未知"
+    .operator.pull-right
+      = link_to "显示详情",company_path(company),:class=>"btn btn-info" 
+
+  .info-list{:style=>"display:none"}
+    = render "companies/cert",  {company: company}
+    = render "companies/court", {company: company}
+  

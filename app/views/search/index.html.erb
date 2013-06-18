@@ -1,0 +1,64 @@
+<div class="row" style="margin-bottom:20px;min-height:100px">
+  <div class="span6 todo" >
+    <%= form_for @query, url: search_path, method: :get do |f| %>
+      <div class="todo-search">
+        <%=f.text_field :name_or_owner_name_or_cert_name_cont, 
+          :class => "todo-search-field", 
+          :placeholder => "请输入公司名或者工商注册号"
+        %>
+      </div>
+    <% end %>
+    <!--ul>
+    <li class="todo-done">
+    <div class="todo-icon fui-man-24"></div>
+    <div class="todo-content">
+      <h4 class="todo-name">
+        Meet <strong>Adrian</strong> at <strong>6pm</strong>
+      </h4>
+      Times Square
+    </div>
+    </li>
+
+    <li>
+    <div class="todo-icon fui-menu-24"></div>
+    <div class="todo-content">
+      <h4 class="todo-name">
+        Chat with <strong>V.Kudinov</strong>
+      </h4>
+      Skype conference an 9 am
+    </div>
+    </li>
+
+    <li>
+    <div class="todo-icon fui-eye-24"></div>
+    <div class="todo-content">
+      <h4 class="todo-name">
+        Watch <strong>Iron Man</strong>
+      </h4>
+      1998 Broadway
+    </div>
+    </li>
+
+    <li>
+    <div class="todo-icon fui-time-24"></div>
+    <div class="todo-content">
+      <h4 class="todo-name">
+        Fix bug on a <strong>Website</strong>
+      </h4>
+      As soon as possible
+    </div>
+    </li>
+    </ul-->
+  </div>
+  <% unless @companies.blank?%>
+    <%= render @companies%>
+    <div class="span12">
+      <%= paginate @companies%>
+    </div>
+
+
+
+  <% end %>
+
+</div>
+

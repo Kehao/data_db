@@ -1,0 +1,22 @@
+  <div class="registration-form">
+    <%= simple_form_for(resource, :as => resource_name,:url => registration_path(resource_name),:html => {:class => 'form-horizontal'}) do |f| %>
+
+        <%= f.input :email,:autofocus => true %>
+        <%= f.input :password  %>
+        <%= f.input :password_confirmation%>
+        <%= f.submit "注 册",:class=>"btn btn-primary btn-large",
+        :style=>"margin-left:160px;width:225px"%>
+
+    <% end %>
+  </div>
+
+  <!--div class="span3 pull-right" style="margin-right:20px">
+    <div class="demo-download" style="margin-bottom:20px">
+      <%= image_tag "html-icon.png" %>
+    </div>
+
+    <a href="" class="btn btn-primary btn-large btn-block">下载api文档</a>
+    <a class="btn btn-danger btn-large btn-block" href="" target="_blank"> Follow us </a-->
+
+  </div>
+

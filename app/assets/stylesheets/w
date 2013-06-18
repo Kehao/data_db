@@ -1,0 +1,39 @@
+//= require_self
+
+@import 'flat-ui'
+
+.main,.registration-form
+  background-color: $form-color
+  border-radius: 6px
+  padding: 24px 23px 20px
+  position: relative
+  margin-bottom: 25px
+
+.alert .close
+  top: -4px
+
+.todo-search
+  border-radius: 6px
+
+input.todo-search-field
+  width: 500px
+
+.todo form
+  margin: 0
+
+.pagination
+  float: right
+
+.nav .icon-chevron-right 
+  float: right
+  margin-top: 4px
+  margin-right: -6px
+  opacity: .25
+
+.nav .active .icon-chevron-right 
+  opacity: 1
+
+.company_nav
+  border-radius: 6px
+
+

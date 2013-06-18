@@ -1,0 +1,27 @@
+<div class="login">
+  <div class="login-screen" style="padding-top:100px;padding-bottom:56px">
+    <div class="login-icon">
+      <h4>管理员登录 <small>档案中心</small></h4>
+      <%= image_tag "illustrations/book.png",:alt=>"Welcome to Mail App"%>
+    </div>
+
+    <div class="login-form">
+      <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+      <%= resource.errors.full_messages.join(",")%>
+      <div class="control-group">
+        <%= f.email_field :email,:class=>"login-field",:placeholder=>"请输入您的邮箱",:autofocus => true,:id=>"login-email" %>
+        <label class="login-field-icon fui-man-16" for="login-email"></label>
+      </div>
+
+      <div class="control-group">
+        <%= f.password_field :password,:class=>"login-field",:placeholder=>"请输入您的密码",:id=>"login-pass" %>
+        <label class="login-field-icon fui-lock-16" for="login-pass"></label>
+      </div>
+
+      <%= f.submit "登 录",:class=>"btn btn-primary btn-large btn-block"%>
+      <%#= link_to "注 册",new_user_registration_path,:class=>"btn  btn-large btn-block btm-inverse"%>
+      <a class="login-link" href="#">密码忘记了？请点击</a>
+    <% end %>
+    </div>
+  </div>
+</div>
