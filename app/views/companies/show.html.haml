@@ -17,33 +17,79 @@
       
       = link_to "编辑", new_or_edit_credit(@company), :class=>"btn"
   = render "shared/company_info_nav"
-  
+
   .pull-right{:style=>";width:720px;margin-left:2em"}
     .company-detail.tab-content
       #company-basic.tab-pane.tab-1.active
         = render "companies/cert", {company: @company}  
       #company-contact.tab-pane.tab-2
         = render "credits/contact", {company: @company} 
+        - unless @company.credit
+          .alert.alert-info
+            暂无联络信息
+
       #company-relationship.tab-pane.tab-3
         = render "credits/changes", {company: @company} 
+        - unless @company.credit
+          .alert.alert-info
+            暂无关联方信息
+
       #company-owner.tab-pane.tab-4
         = render "credits/owner", {company: @company} 
+        - unless @company.credit
+          .alert.alert-info
+            暂无经营者信息
+
       #company-opt.tab-pane.tab-5
         = render "credits/opt", {company: @company} 
+        - unless @company.credit
+          .alert.alert-info
+            暂无经营信息
+
       #company-people.tab-pane.tab-6
         = render "credits/people", {company: @company} 
+        - unless @company.credit
+          .alert.alert-info
+            暂无人员信息
+
       #company-devise.tab-pane.tab-7
         = render "credits/devise", {company: @company} 
+        - unless @company.credit
+          .alert.alert-info
+            暂无设备信息
+
       #company-place.tab-pane.tab-8
         = render "credits/place", {company: @company} 
+        - unless @company.credit
+          .alert.alert-info
+            暂无场所信息
+
       #company-bank.tab-pane.tab-9
         = render "credits/bank", {company: @company} 
+        - unless @company.credit
+          .alert.alert-info
+            暂无银行信息
+
+
+
       #company-other.tab-pane.tab-10
         = render "credits/other", {company: @company} 
+        - unless @company.credit
+          .alert.alert-info
+            暂无相关信息
+
       #company-review.tab-pane.tab-11
         = render "credits/review", {company: @company} 
+        - unless @company.credit
+          .alert.alert-info
+            暂无行业评价
+
       #company-finance.tab-pane.tab-12
         = render "credits/finance", {company: @company}
+        - unless @company.credit
+          .alert.alert-info
+            暂无财务信息
+
       #company-level.tab-pane.tab-13
         = render "companies/credit_info",  {company: @company}
         / = render "credits/level", {company: @company}
