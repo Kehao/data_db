@@ -6,7 +6,7 @@ class CompanyReport <  Prawn::Document
   def to_pdf
     credit = company.credit
     if credit.nil?
-      company.create_credit
+     credit = company.create_credit
     end
 
     pdf_init
