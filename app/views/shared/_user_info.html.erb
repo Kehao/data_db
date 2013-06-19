@@ -1,10 +1,13 @@
 <ul class="nav pull-right" style="margin:0;margin-right:15px">
   <li class="active">
   <% if current_user%>
-    <%= link_to("#{current_user.email}<span class='navbar-unread'>2</span>".html_safe,"#")%>
+    <%= link_to(current_user.email,"#")%>
     <ul>
       <li>
-      <a href="#">系统消息</a>
+        <%= link_to "#" do %>
+          系统消息
+          <!--span class='navbar-unread'>2</span-->
+        <% end %>
       <!--ul>
         <li><a href="#">Element One</a></li>
         <li><a href="#">Element Two</a></li>
@@ -16,7 +19,7 @@
       </li>
     </ul> 
   <% else %>
-    <a href="/users/sign_in"> 登 录  <span class="navbar-unread">2</span> </a>
+    <a href="/users/sign_in"> 登 录 </a>
   <% end %>
   </li>
 </ul>
