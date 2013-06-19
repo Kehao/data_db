@@ -3,7 +3,7 @@
     .container
       %ul.nav
         %li
-          = link_to "档案中心",root_path
+          = link_to "征信中心",root_path
         - active_class = controller_name.eql?("search") && "active" || ""
         %li{:class=>active_class}
           = link_to search_path do 
