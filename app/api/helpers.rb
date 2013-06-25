@@ -1,11 +1,23 @@
 #encoding: utf-8
 module API 
   module Helpers
+    def api_keys
+      [
+        "special-key1"
+      ]
+    end
     
     def search_has_one_assoc_and_error!(model,assoc)
       if model.send(assoc)
         error!({ "error" => "已存在该公司的#{assoc}信息,若要修改请使用PUT"}, 400)
       end
+    end
+
+    def verify_api_key
+      p params
+        unless params[:api_key] && api_keys.include?(params[:api_key])
+          error!({ "error" => "您的api-key没有通过，你可以尝试联系我们"}, 400)
+        end
     end
     
     def create_has_one_assoc_or_error!(model,assoc,attrs)

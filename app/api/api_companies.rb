@@ -66,6 +66,7 @@ module API
       end
 
       post "/",:rabl => "companies/show"do
+        verify_api_key
         @company = Company.create(params[:company])
         if @company.new_record? 
           error!({ "error" => "新建公司失败", 
@@ -101,6 +102,7 @@ module API
       end
 
       put ":id",:rabl => "companies/show"do
+        verify_api_key
         @company = search_company_or_error!
         unless @company.update_attributes(params[:company])
           error!({ "error" => "修改公司失败", 
@@ -125,6 +127,7 @@ module API
       end
 
       post ":id/business",:rabl => "companies/show" do
+        verify_api_key
         @company = search_company_or_error!
         create_or_update_has_one_assoc_or_error!(@company,:business,params[:business])
       end
@@ -146,6 +149,7 @@ module API
       end
 
       post ":id/cert",:rabl => "companies/show" do
+        verify_api_key
         @company = search_company_or_error!
         create_or_update_has_one_assoc_or_error!(@company,:cert,params[:cert])
       end
@@ -167,6 +171,7 @@ module API
       end
 
       post ":id/credit",:rabl => "companies/show" do
+        verify_api_key
         @company = search_company_or_error!
         create_or_update_has_one_assoc_or_error!(@company,:credit,params[:credit])
       end
