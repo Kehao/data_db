@@ -14,8 +14,8 @@
     %small
       = link_to "导出该公司的征信报告",company_path(@company,:format=>:pdf)
     %p{:style => "float:right"}
-      
-      = link_to "编辑", new_or_edit_credit(@company), :class=>"btn"
+      - if current_user      
+        = link_to "编辑", new_or_edit_credit(@company), :class=>"btn"
   = render "shared/company_info_nav"
 
   .pull-right{:style=>";width:720px;margin-left:2em"}

@@ -1,5 +1,5 @@
 %div.span12.search_company{:id=>dom_id(company)}
-  .palette.palette-clouds{:style=>"margin-bottom:10px"}
+  .palette.palette-clouds
     %h3
       = link_to_function company.name,"$('##{dom_id(company)} .info-list').fadeToggle()"
     %small
