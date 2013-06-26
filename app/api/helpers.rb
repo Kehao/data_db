@@ -1,6 +1,7 @@
 #encoding: utf-8
 module API 
   module Helpers
+    
     def search_has_one_assoc_and_error!(model,assoc)
       if model.send(assoc)
         error!({ "error" => "已存在该公司的#{assoc}信息,若要修改请使用PUT"}, 400)

@@ -64,7 +64,7 @@ module ImportMethods
 
     def import_company(company_attrs,importer)
       company = Company.new(company_attrs)
-      company.importer_secure_token = importer && importer.secure_token || nil
+      company.importer_id = importer && importer.id || nil
       company.create_way = Company::CREATE_WAY[:import]
       company.save
       company
@@ -101,7 +101,7 @@ module ImportMethods
     unless company_client
       company_client = self.user.company_clients.new
       company_client.company = company
-      company_client.importer_secure_token = self.secure_token
+      company_client.importer_id = self.id
       company_client.save
     end
     end_import(company_client)
@@ -120,7 +120,7 @@ module ImportMethods
   def import_client_company_relationship(company_client,relationship_attrs,company)
     relate_type = RelationshipImporter.relate_type(relationship_attrs[:relate_type])
     rela = company_client.company_relationships.create(
-      :importer_secure_token => self.secure_token,
+      :importer_id => self.id,
       :desc => relationship_attrs[:desc],
       :hold_percent => relationship_attrs[:hold_percent],
       :relate_type => relate_type,
@@ -132,7 +132,7 @@ module ImportMethods
   def import_client_person_relationship(company_client,relationship_attrs,person)
     relate_type = RelationshipImporter.relate_type(relationship_attrs[:relate_type])
     rela = company_client.person_relationships.create(
-      :importer_secure_token => self.secure_token,
+      :importer_id => self.id,
       :desc => relationship_attrs[:desc],
       :hold_percent => relationship_attrs[:hold_percent],
       :relate_type => relate_type,
